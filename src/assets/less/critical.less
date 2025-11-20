@@ -99,6 +99,10 @@
             margin: auto;
         }
 
+        .cs-topper {
+            color: #62c3ff; /* V added for brighter display on dark hero background img */
+        }
+
         .cs-title {
             /* 39px - 61px */
             font-size: clamp(2.4375rem, 6.4vw, 3.8125rem);
@@ -146,7 +150,7 @@
 /* Desktop - 1300px (To make image background parallax) */
 @media only screen and (min-width: 81.25rem) {
     #hero-143 {
-        background: url("/assets/images/landing.jpg");
+        background: url("/assets/images/background-1e.jpg");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -161,26 +165,9 @@
     }
 }
 
-/* Dark Mode */
-@media only screen and (min-width: 0rem) {
-    body.dark-mode {
-        #hero-143 {
-            &:before,
-            &:after {
-                background: var(--dark);
-            }
-
-            .cs-background {
-                &:before {
-                    opacity: 0.85;
-                }
-            }
-        }
-    }
-}
 
 /*-- -------------------------- -->
-<---         Services           -->
+<---   Hero stats - Services CS 143           -->
 <--- -------------------------- -*/
 
 /* Mobile - 360px */
@@ -219,6 +206,10 @@
             &:last-of-type {
                 margin-bottom: 0;
             }
+
+            &:nth-of-type(2) .cs-icon img { /* V added to make phone icon less white. Other 3 are a bit grey. In future, replace all 4 icons with pure white and delete these lines 210-212 */
+                filter: invert(100%) brightness(93%);
+            }
         }
 
         .cs-icon {
@@ -239,6 +230,7 @@
                 /* 44px - 52px */
                 width: clamp(2.75rem, 5.8vw, 3.25rem);
                 height: auto;
+                filter: invert(100%); /* V added to change svg icons from black to white, on round blue background */
             }
         }
 

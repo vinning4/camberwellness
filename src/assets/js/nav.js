@@ -78,11 +78,28 @@ dropdownElements.forEach(element => {
     });
 
     // Handles dropdown menus on mobile - the matching media query (max-width: 63.9375rem) is necessary so that clicking the dropdown button on desktop does not add the active class and thus interfere with the hover state
+    /*
     const maxWidthMediaQuery = window.matchMedia("(max-width: 63.9375rem)");
     if (maxWidthMediaQuery.matches) {
         element.addEventListener("click", () => toggleDropdown(element));
     }
+    Commented out above coz Information submenu wasn't opening in mobile dropdown */
+
+    // Handles dropdown menus on mobile - checks width on each click instead of only at page load
+    element.addEventListener("click", (event) => {
+        const maxWidthMediaQuery = window.matchMedia("(max-width: 63.9375rem)");
+    
+        // Only toggle dropdown if we're in mobile view
+        if (maxWidthMediaQuery.matches) {
+            toggleDropdown(element);
+        }
 });
+
+
+
+});
+
+
 
 // Pressing Enter will redirect to the href
 const dropdownLinks = document.querySelectorAll(".cs-drop-li > .cs-li-link");

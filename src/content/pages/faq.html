@@ -1,0 +1,159 @@
+---
+title: "FAQ | Camberwellness Medical Practice"
+description: "Common questions about appointments, bulk billing, telehealth, home visits, interpreters, and after-hours care at Camberwellness Medical Practice in Camberwell VIC."
+permalink: "/faq/"
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/feesandfaq.css">
+{% endblock %}
+
+{% block body %}
+
+
+<!-- ============================================ -->
+<!--               FAQ CS 351                     -->
+<!-- ============================================ -->
+
+<section id="faq-351">
+    <div class="cs-container">
+        <div class="cs-content">
+            <span class="cs-topper">Information for patients</span>
+            <h2 class="cs-title">Frequently Asked Questions</h2>
+        </div>
+        <ul class="cs-faq-group">
+            <!-- Active class added as default -->
+            <li class="cs-faq-item active">
+                <button class="cs-button">
+                    <span class="cs-button-text">
+                        After hours care
+                    </span>
+                </button>
+                <p class="cs-item-p">
+                    After hours healthcare is provided by <i>Hello Home Doctor</i> on 134 100. 
+                </p>
+            </li>
+            <li class="cs-faq-item">
+                <button class="cs-button">
+                    <span class="cs-button-text">
+                        Appointments
+                    </span>
+                </button>
+                <p class="cs-item-p">
+                    Our appointment system caters for urgent, non-urgent, complex, planned chronic care and preventative healthcare. If you need more time with your GP, you should arrange a longer consultation when booking. Please advise reception staff if you have more than one issue to discuss so the appropriate consultation time can be booked.<br><br>
+                    For urgent appointments, the nurse will triage and the next available GP will see you. Please advise reception if you need an urgent appointment.
+                </p>
+            </li>
+            <li class="cs-faq-item">
+                <button class="cs-button">
+                    <span class="cs-button-text">
+                        Emergencies
+                    </span>
+                </button>
+                <p class="cs-item-p">
+                    Please dial <b>triple zero (000)</b> or attend the nearest hospital in an emergency.<br><br>
+                    The nearest hospital to the centre is: <br><br>
+                    Box Hill Hospital<br>
+                    8 Arnold St, Box Hill VIC 3128<br>
+                    Tel: 1300 342 255
+                </p>
+            </li>
+            <li class="cs-faq-item">
+                <button class="cs-button">
+                    <span class="cs-button-text">
+                        Home visits
+                    </span>
+                </button>
+                <p class="cs-item-p">
+                    Depending on circumstances, nursing home and home visits may be provided to patients. Visits will take place during clinic hours at the discretion of the individual GP. If a home visit isn't appropriate, a telephone consultation may be offered as an alternative.
+                </p>
+            </li>
+            <li class="cs-faq-item">
+                <button class="cs-button">
+                    <span class="cs-button-text">
+                        Medical certificates
+                    </span>
+                </button>
+                <p class="cs-item-p">
+                    Yes our GPs can provide them. You're welcome to make an appointment although you may find a telephone consult to be more efficient.
+                </p>
+            </li>
+        </ul>
+        <!--Added second UL, this allows you to open a FAQ item on each side without messing up the flexbox for the other -->
+        <ul class="cs-faq-group">
+            <li class="cs-faq-item">
+                <button class="cs-button">
+                    <span class="cs-button-text">
+                        Recalls and reminders
+                    </span>
+                </button>
+                <p class="cs-item-p">
+                    We may contact you through SMS, phone or letters regarding your results, follow up appointments or routine preventative healthcare like vaccinations or screenings. Your doctor may request your prompt reply to follow up on important matters. To ensure we can contact you about your results and appointments, please advise our reception team that you would like to opt-in to receive SMS communications.
+                </p>
+            </li>
+            <li class="cs-faq-item">
+                <button class="cs-button">
+                    <span class="cs-button-text">
+                        Telehealth
+                    </span>
+                </button>
+                <p class="cs-item-p">
+                    If you have visited the practice in person at least once, telehealth services are available to you. These depend on GP availability, so please contact the practice for more information.
+                </p>
+            </li>
+            <li class="cs-faq-item">
+                <button class="cs-button">
+                    <span class="cs-button-text">
+                        Test results
+                    </span>
+                </button>
+                <p class="cs-item-p">
+                    Please contact us by phone for test results. If you would like to discuss your results, please make an appointment with your doctor.
+                </p>
+            </li>
+            <li class="cs-faq-item">
+                <button class="cs-button">
+                    <span class="cs-button-text">
+                        Translator services
+                    </span>
+                </button>
+                <p class="cs-item-p">
+                    For patients with language difficulties, a telephone translator service can be arranged by calling 131 450.<br>
+                    For patients with hearing difficulties, Auslan interpreters can be arranged by calling 1300 287 526.<br>
+                    Please advise our receptionist if you need this.
+                </p>
+            </li>
+            <li class="cs-faq-item">
+                <button class="cs-button">
+                    <span class="cs-button-text">
+                        Walk-ins and wait times
+                    </span>
+                </button>
+                <p class="cs-item-p">
+                    Walk-ins are welcome! There may be an unavoidable wait as we prioritize patients with appointments. At times the waiting period is longer when GPs are tending to an unexpected urgent or complex medical issue. Hope you won't mind the inconvenience, and we appreciate your patience while we do our best to accommodate you. 
+                </p>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<script>
+
+    const faqItems = Array.from(document.querySelectorAll('.cs-faq-item'));
+        for (const item of faqItems) {
+            const onClick = () => {
+            item.classList.toggle('active')
+        }
+        item.addEventListener('click', onClick)
+        }
+
+</script>
+                                
+
+
+
+    {% include 'sections/cta.html' %}
+
+{% endblock %}

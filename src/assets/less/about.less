@@ -1,201 +1,389 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// PAGE STYLES
-// Interior pages have their own stylesheet for styles that only exist on
-// that page. Any styles shared between pages, including repeated sections,
-// should go into root.less
-// ─────────────────────────────────────────────────────────────────────────────
-
-/*-- -------------------------- -->
-<---       Side By Side         -->
-<--- -------------------------- -*/
-
-/* Mobile - 360px */
-@media only screen and (min-width: 0rem) {
-    #RPsbs-313 {
-        padding: var(--sectionPadding);
-
-        .cs-container {
-            width: 100%;
-            max-width: (1280/16rem);
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            /* 48px - 64px */
-            gap: clamp(3rem, 6vw, 4rem);
-        }
-
-        .cs-content {
-            /* set text align to left if content needs to be left aligned */
-            text-align: left;
-            width: 100%;
-            max-width: (542/16rem);
-            display: flex;
-            flex-direction: column;
-            /* centers content horizontally, set to flex-start to left align */
-            align-items: flex-start;
-        }
-
-        .cs-text {
-            margin-bottom: (16/16rem);
-            &:last-of-type {
-                margin-bottom: (32/16rem);
-            }
-        }
-
-        .cs-quote {
-            margin: 0 0 (32/16rem) 0;
-            /* 16px - 32px */
-            padding: clamp(1rem, 3vw, 2rem);
-            background-color: #f7f7f7;
-            border-radius: (16/16rem);
-            position: relative;
-        }
-
-        .cs-quote-text {
-            /* 14px - 16px */
-            font-size: clamp(0.875rem, 1.5vw, 1rem);
-            line-height: 1.5em;
-            margin: 0 0 (16/16rem);
-            color: #767676;
-            display: block;
-        }
-
-        .cs-name {
-            font-size: (16/16rem);
-            line-height: 1.2em;
-            text-transform: uppercase;
-            font-weight: bold;
-            margin: 0 0 (4/16rem);
-            color: var(--headerColor);
-            display: block;
-        }
-
-        .cs-job {
-            font-size: (14/16rem);
-            line-height: 1.5em;
-            color: #767676;
-            display: block;
-        }
-
-        .cs-quote-icon {
-            /* 60px - 136px */
-            width: clamp(3.75rem, 10vw, 8.5rem);
-            height: auto;
-            position: absolute;
-            bottom: (0/16rem);
-            /* 16px - 32px */
-            right: clamp(1rem, 4vw, 2rem);
-        }
-
-        .cs-image-group {
-            /* scaling the font size with the view width */
-            font-size: ~"min(2.31vw, .7em)";
-            /* using ems so we can use font size to scale the whole section */
-            width: (631/16em);
-            height: (636/16em);
-            position: relative;
-        }
-
-        .cs-picture {
-            border-radius: (24/16em);
-            /* clips img tag corners */
-            overflow: hidden;
-            position: absolute;
-            display: block;
-
-            img {
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 100%;
-                /* makes image act like a background image */
-                object-fit: cover;
-            }
-        }
-
-        .cs-picture1 {
-            width: (522/16em);
-            height: (581/16em);
-            left: 0;
-            top: 0;
-        }
-
-        .cs-picture2 {
-            width: (414/16em);
-            height: (400/16em);
-            background-color: #fff;
-            box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
-            /* 6px - 12px */
-            border: clamp(0.375em, 1.5vw, 0.75em) solid #fff;
-            right: 0;
-            bottom: 0;
-        }
-    }
-}
-
-/* Desktop - 1024px */
-@media only screen and (min-width: 64rem) {
-    #RPsbs-313 {
-        .cs-container {
-            flex-flow: row;
-            justify-content: space-between;
-            gap: (52/16rem);
-        }
-
-        .cs-image-group {
-            font-size: ~"min(1.2vw, 1em)";
-            flex: none;
-        }
-
-        .cs-content {
-            margin: 0;
-        }
-    }
-}
-
-/* Dark Mode */
-@media only screen and (min-width: 0rem) {
-    body.dark-mode {
-        #RPsbs-313 {
-            .cs-image-group {
-                &:before,
-                &:after {
-                    background: var(--accent);
+ /* LESS Code - Copy this to your .less file */
+        
+        // GLOBAL VARIABLES - Easy customization points
+        @primary-blue: #2484b8;        // CHANGE THIS: Main blue color used throughout
+        @font-family: Arial, sans-serif; // CHANGE THIS: Font family for entire component
+        @border-radius: 8px;
+        @spacing-sm: 8px;
+        @spacing-md: 16px;
+        @spacing-lg: 24px;
+        
+        .doctors-section {
+            margin-top: 7vw;   /* V added */
+            padding: @spacing-lg;
+            font-family: @font-family;
+            
+            .section-header {
+                margin-bottom: @spacing-lg;
+                
+                h2 {
+                    color: @primary-blue;
+                    font-size: 2.5rem;
+                    margin-bottom: @spacing-md;
+                    font-weight: bold;
+                }
+                
+                .description {
+                    color: #666;
+                    font-size: 1.1rem;
+                    line-height: 1.6;
+                    margin-bottom: @spacing-lg;
                 }
             }
-
-            .cs-picture2 {
-                background-color: var(--dark);
-                /* 6px - 12px */
-                border: clamp(0.375em, 1.5vw, 0.75em) solid var(--dark);
+            
+            .search-controls {
+                display: flex;
+                flex-wrap: wrap;
+                gap: @spacing-md;
+                align-items: center;
+                margin-bottom: @spacing-lg;
+                
+                .search-input {
+                    position: relative;
+                    flex: 1;
+                    min-width: 300px;
+                    
+                    input {
+                        width: 30%;
+                        padding: 12px 40px 12px @spacing-md;
+                        border: 2px solid #ddd;
+                        border-radius: @border-radius;
+                        font-size: 1rem;
+                        font-family: @font-family;
+                        
+                        &:focus {
+                            outline: none;
+                            border-color: @primary-blue;
+                        }
+                    }
+                    
+                    .search-icon {
+                        position: relative;
+                        // right: 12px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        color: #999;
+                        font-size: 1.2rem;
+                    }
+                    
+                    .clear-search {
+                        position: absolute;
+                        right: 35px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        background: none;
+                        border: none;
+                        font-size: 1.5rem;
+                        color: #999;
+                        cursor: pointer;
+                        display: none;
+                        
+                        &.show {
+                            display: block;
+                        }
+                    }
+                }
             }
-
-            .cs-topper {
-                color: var(--primaryLight);
+            
+            .filter-section {
+                margin-bottom: @spacing-lg;
+                
+                .filter-label {
+                    font-weight: bold;
+                    margin-bottom: @spacing-sm;
+                    color: #333;
+                }
+                
+                .alphabet-filter {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: @spacing-sm;
+                    margin-bottom: @spacing-md;
+                    
+                    .letter-btn {
+                        padding: @spacing-sm 12px;
+                        border: 1px solid #ddd;
+                        background: white;
+                        color: #666;
+                        text-decoration: none;
+                        border-radius: 4px;
+                        font-family: @font-family;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        
+                        &:hover {
+                            background: #f0f0f0;
+                        }
+                        
+                        &.active {
+                            background: @primary-blue;
+                            color: white;
+                            border-color: @primary-blue;
+                        }
+                    }
+                }
+                
+                .active-filters {
+                    display: flex;
+                    align-items: center;
+                    gap: @spacing-md;
+                    
+                    .filter-tag {
+                        display: inline-flex;
+                        align-items: center;
+                        gap: @spacing-sm;
+                        padding: 4px 12px;
+                        background: #e3f2fd;
+                        color: @primary-blue;
+                        border-radius: 20px;
+                        font-size: 0.9rem;
+                        
+                        .remove-filter {
+                            background: none;
+                            border: none;
+                            color: @primary-blue;
+                            cursor: pointer;
+                            font-size: 1.2rem;
+                            line-height: 1;
+                        }
+                    }
+                    
+                    .clear-all-filters {
+                        color: @primary-blue;
+                        text-decoration: underline;
+                        cursor: pointer;
+                        font-size: 0.9rem;
+                        
+                        &:hover {
+                            text-decoration: none;
+                        }
+                    }
+                }
             }
-
-            .cs-title,
-            .cs-text,
-            .cs-h3,
-            .cs-quote-text,
-            .cs-name {
-                color: var(--bodyTextColorWhite);
+            
+            .doctors-table {
+                background: white;
+                border-radius: @border-radius;
+                overflow: visible;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                
+                .table-header {
+                    background: @primary-blue;
+                    color: white;
+                    display: grid;
+                    grid-template-columns: 1fr 2fr 150px;
+                    padding: @spacing-md;
+                    font-weight: bold;
+                    overflow: visible; // added this.
+                    
+                    .specialty-header {
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        gap: @spacing-sm;
+                        cursor: pointer;
+                        overflow: visible;
+                        transition: background-color 0.3s ease;  /* ADD SMOOTH TRANSITION */
+                        padding: 4px 8px;   /* ADD PADDING FOR HOVER AREA */
+                        border-radius: 4px;  /* ADD BORDER RADIUS */
+                        
+                         &:hover {      /* not added HOVER EFFECT */
+                            // background-color: rgba(255,255,255,0.1);
+                        }
+                        
+                        .dropdown-arrow {
+                            transition: transform 0.3s ease;
+                            
+                            &.open {
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+                }
+                
+                .doctor-row {
+                    display: grid;
+                    grid-template-columns: 1fr 2fr 150px;
+                    padding: @spacing-md;
+                    border-bottom: 1px solid #eee;
+                    align-items: center;
+                    transition: background-color 0.3s ease;
+                    
+                    &:hover {
+                        background: #f9f9f9;
+                    }
+                    
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                    
+                    .doctor-info {
+                        display: flex;
+                        align-items: center;
+                        gap: @spacing-md;
+                        
+                        .doctor-photo {
+                            width: 60px;
+                            height: 60px;
+                            border-radius: 50%;
+                            object-fit: cover;
+                            border: 2px solid #eee;
+                        }
+                        
+                        .doctor-details {
+                            .doctor-name {
+                                font-weight: bold;
+                                color: @primary-blue;
+                                margin-bottom: 4px;
+                                // text-decoration: none;
+                                
+                                &:hover { // removed clickable link for doc name
+                                    // text-decoration: underline;
+                                }
+                            }
+                            
+                            .doctor-qualifications {
+                                color: #666;
+                                font-size: 0.9rem;
+                            }
+                        }
+                    }
+                    
+                    .specialties {
+                        color: #555;
+                        line-height: 1.4;
+                    }
+                    
+                    .booking-btn {
+                        padding: 10px 20px;
+                        background: white;
+                        color: @primary-blue;
+                        border: 2px solid @primary-blue;
+                        border-radius: @border-radius;
+                        text-decoration: none;
+                        font-family: @font-family;
+                        font-weight: bold;
+                        text-align: center;
+                        transition: all 0.3s ease;
+                        cursor: pointer;
+                        
+                        // CHANGE THIS: Add your booking link in the href attribute of each button
+                        
+                        &:hover {
+                            background: @primary-blue;
+                            color: white;
+                        }
+                    }
+                }
+                
+                .no-results {
+                    text-align: center;
+                    padding: 40px @spacing-md;
+                    color: #666;
+                    font-style: italic;
+                    display: none;
+                    
+                    &.show {
+                        display: block;
+                    }
+                }
             }
-
-            .cs-quote {
-                background-color: var(--accent);
-            }
-
-            .cs-job {
-                color: var(--bodyTextColorWhite);
-                opacity: 0.8;
-            }
-
-            .cs-quote-icon {
-                opacity: 0.2;
+            
+            .specialty-dropdown {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                min-width: 300px;       // ADD THIS: Ensure minimum width
+                width: max-content;     // CHANGE THIS: Allow content to determine width
+                max-width: 500px;        // ADD THIS: Prevent it from getting too wide
+                background: white;
+                border: 1px solid #ddd;
+                border-radius: 0 0 @border-radius @border-radius;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                z-index: 1000;
+                max-height: 400px;
+                overflow-y: auto;              // CHANGE THIS: Back to auto (was scroll)
+                display: none;
+                color: #333;
+                white-space: nowrap;           // ADD THIS: Prevent text wrapping
+                
+                &.show {
+                    display: block;
+                }
+                
+                .specialty-option {
+                    padding: 12px @spacing-md;
+                    cursor: pointer;
+                    border-bottom: 1px solid #f0f0f0;
+                    transition: background-color 0.3s ease;
+                    color: #333;
+                    background: white;
+                    white-space: nowrap;       // ADD THIS: Prevent text wrapping in options
+                    
+                    &:hover {
+                        background: #f9f9f9;
+                        color: #333;
+                    }
+                    
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                }
             }
         }
-    }
-}
+        
+        // RESPONSIVE DESIGN
+        @media (max-width: 768px) {
+            .doctors-section {
+                margin-top: 10vw; /* V added */
+                padding: @spacing-md;
+                
+                .section-header h2 {
+                    font-size: 2rem;
+                }
+                
+                .search-controls .search-input {
+                    min-width: 100%;
+                }
+                
+                .alphabet-filter {
+                    justify-content: center;
+                }
+                
+                .doctors-table {
+                    .table-header,
+                    .doctor-row {
+                        grid-template-columns: 1fr;
+                        gap: @spacing-md;
+                        text-align: center;
+                    }
+                    
+                    .table-header {
+                        .specialty-header {
+                            justify-content: center;  // CENTER SPECIAL INTERESTS
+                        }
+                    }
+                    
+                    .doctor-row {
+                        border-bottom: 2px solid #e0e0e0;  // ADD SEPARATOR: Light grey line
+                        padding-bottom: @spacing-lg;       // INCREASE BOTTOM PADDING
+                        margin-bottom: @spacing-md;        // ADD MARGIN BETWEEN ROWS
+                        
+                        &:last-child {
+                            border-bottom: none;
+                            margin-bottom: 0;
+                        }
+                        
+                        .doctor-info {
+                            justify-content: center;
+                            flex-direction: column;
+                            text-align: center;
+                        }
+                        
+                        .specialties {
+                            font-size: 0.9rem;
+                        }
+                    }
+                }
+            }
+        }

@@ -1,14 +1,18 @@
+<!--
 ---
-title: "Blog | Code Stitch Web Designs"
-description: "Meta description for the page"
+title: "Blog | Camberwellness"
+description: "Blog of Camberwellness Medical Practice"
 permalink: "/blog/"
 ---
+-->
 
 {% extends "layouts/base.html" %}
 
 {% block head %}
+    <!--
     <link rel="preload" as="image" href="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | avif %}"/>
     <link rel="stylesheet" href="/assets/css/blog.css">
+    -->
 {% endblock %}
 
 {% block body %}
@@ -16,6 +20,7 @@ permalink: "/blog/"
     <!--                   Banner                     -->
     <!-- ============================================ -->
 
+    <!--
     <div id="banner-310">
         <div class="cs-container">
             <span class="cs-int-title">Blog</span>
@@ -24,28 +29,47 @@ permalink: "/blog/"
                 <a href="/blog/" class="cs-link cs-active">Blog</a>
             </div>
         </div>
+
+        -->
         <!--Background Image-->
+
+        <!--
         <picture class="cs-background">
+        -->
             <!--Mobile Image-->
+            <!--
             <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | avif %}" type="image/avif">
             <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | webp %}" type="image/webp">
             <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | jpeg %}" type="image/jpeg">
+
+            -->
+
             <!--Tablet Image-->
+
+            <!--
             <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2048, height: 942 }) | avif %}" type="image/avif">
             <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2048, height: 942 }) | webp %}" type="image/webp">
             <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2048, height: 942 }) | jpeg %}" type="image/jpeg">
+
+            -->
+
             <!--Desktop Image-->
+
+            <!--
             <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | avif %}" type="image/avif">
             <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | webp %}" type="image/webp">
             <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | jpeg %}" type="image/jpeg">
             <img src="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | jpeg %}" alt="library" width="1920" height="482" loading="eager" decoding="async">
         </picture>
     </div>
+            -->
 
     <!-- ============================================ -->
     <!--                 Blog Listings                -->
     <!-- ============================================ -->
 
+
+    <!--
     <div id="blog-listing">
         <div class="cs-container">
             {% if collections.post | length == 0 %}
@@ -54,15 +78,28 @@ permalink: "/blog/"
                 {%- for post in collections.post | reverse -%}
                     <article class="cs-article">
                         <picture class="cs-article-image">
+
+                            -->
+
                             <!--Mobile Image-->
+
+                            <!--
                             <source media="(max-width: 600px)" srcset="{% getUrl post.data.image | resize({ width: 576, height: 400 }) | avif %}" type="image/avif">
                             <source media="(max-width: 600px)" srcset="{% getUrl post.data.image | resize({ width: 576, height: 400 }) | webp %}" type="image/webp">
                             <source media="(max-width: 600px)" srcset="{% getUrl post.data.image | resize({ width: 576, height: 400 }) | jpeg %}" type="image/jpeg">
+
+                            -->
                             <!--Tablet Image-->
+                            <!--
                             <source media="(max-width: 1024px)" srcset="{% getUrl post.data.image | resize({ width: 1142, height: 614 }) | avif %}" type="image/avif">
                             <source media="(max-width: 1024px)" srcset="{% getUrl post.data.image | resize({ width: 1142, height: 614 }) | webp %}" type="image/webp">
                             <source media="(max-width: 1024px)" srcset="{% getUrl post.data.image | resize({ width: 1142, height: 614 }) | jpeg %}" type="image/jpeg">
+
+                            -->
+
                             <!--Desktop Image-->
+
+                            <!--
                             <source media="(min-width: 1024px)" srcset="{% getUrl post.data.image | resize({ width: 1648, height: 800 }) | avif %}" type="image/avif">
                             <source media="(min-width: 1024px)" srcset="{% getUrl post.data.image | resize({ width: 1648, height: 800 }) | webp %}" type="image/webp">
                             <source media="(min-width: 1024px)" srcset="{% getUrl post.data.image | resize({ width: 1648, height: 800 }) | jpeg %}" type="image/jpeg">
@@ -92,4 +129,7 @@ permalink: "/blog/"
 
         {% include 'components/featured-posts.html' %}
     </div>
+
+    -->
+
 {% endblock %}
